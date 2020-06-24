@@ -14,15 +14,4 @@ public class LoginController {
 		System.out.println("user added to list /auth/register");
 		return "success";
 	}
-	@PostMapping("/register")
-	public String registerUser1(@RequestBody User user) {
-		System.out.println("user added to list register");
-		return "success";
-	}
-	
-	@PostMapping("/login/register")
-	public String registerUser2(@RequestBody User user) {
-		System.out.println("user added to list login");
-		return "success";
-	}
 }

@@ -42,16 +42,9 @@ public class SecurityCredentialsConfig extends WebSecurityConfigurerAdapter {
 		    .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfig))	
 		.authorizeRequests()
 		    // allow all POST requests 
-			.antMatchers(HttpMethod.POST, jwtConfig.getUri()).permitAll()
-		   .antMatchers(HttpMethod.POST, "/auth/**").permitAll()
-		   .antMatchers(HttpMethod.POST, "/auth/register").permitAll()
-		   .antMatchers(HttpMethod.POST, "/register").permitAll()
-		   .antMatchers(HttpMethod.POST, "/login/register").permitAll()
-		   .antMatchers(jwtConfig.getUri()).permitAll()
-		   .antMatchers("/auth/**").permitAll()
-		   .antMatchers("/auth/register").permitAll()
-		   .antMatchers("/register").permitAll()
-		   .antMatchers("/login/register").permitAll()
+			.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+			.antMatchers(HttpMethod.POST, "/auth").permitAll()
+			.antMatchers(HttpMethod.POST, "/auth/register").permitAll()
 		    // any other requests must be authenticated
 		    .anyRequest().authenticated();
 	}
